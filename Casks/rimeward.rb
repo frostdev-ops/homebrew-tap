@@ -1,6 +1,6 @@
 cask "rimeward" do
-  version "1.0.14"
-  sha256 "b406ea15c33d3f054f4828d7ea87dfe593fef151dc4e1a8c26250113d13ea078"
+  version "1.0.15"
+  sha256 "cdd663931c9e12bebe0b09e38d643299d7809a67d785d57bc9af3cd8aa97d5ca"
 
   url "https://github.com/frostdev-ops/rimeward/releases/download/desktop-v#{version}/Rimeward_#{version}_aarch64.dmg"
   name "Rimeward"
