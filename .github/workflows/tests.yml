@@ -1,0 +1,20 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  cask:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tap this checkout
+        run: |
+          tap="$(brew --repository)/Library/Taps/frostdev-ops/homebrew-tap"
+          mkdir -p "$(dirname "$tap")"
+          ln -s "$GITHUB_WORKSPACE" "$tap"
+      - run: brew style --cask frostdev-ops/tap/rimeward
+      - run: brew audit --cask --strict --online frostdev-ops/tap/rimeward
+      - run: brew install --cask frostdev-ops/tap/rimeward
+      - run: brew uninstall --cask --zap frostdev-ops/tap/rimeward
